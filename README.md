@@ -31,7 +31,7 @@ The list of common types are:
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp" % "0.0.0"
+"com.permutive" %% "common-types-gcp" % "0.1.0"
 ```
 
 ## Usage
@@ -92,7 +92,7 @@ val projectId: ProjectId = ProjectId("test-project")
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-circe" % "0.0.0"
+"com.permutive" %% "common-types-gcp-circe" % "0.1.0"
 ```
 
 #### Usage
@@ -113,7 +113,7 @@ available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-http4s" % "0.0.0"
+"com.permutive" %% "common-types-gcp-http4s" % "0.1.0"
 ```
 
 #### Usage
@@ -134,7 +134,7 @@ instances for the available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-pureconfig" % "0.0.0"
+"com.permutive" %% "common-types-gcp-pureconfig" % "0.1.0"
 ```
 
 #### Usage
@@ -159,7 +159,7 @@ current `ProjectId` from Google's metadata service.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-scalacheck" % "0.0.0"
+"com.permutive" %% "common-types-gcp-scalacheck" % "0.1.0"
 ```
 
 #### Usage
