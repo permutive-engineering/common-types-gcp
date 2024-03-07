@@ -16,4 +16,7 @@
 
 package com.permutive.common.types.gcp
 
-package object http4s extends DatasetNameHttp4sInstances with ProjectIdHttp4sInstances
+package object http4s
+    extends DatasetNameHttp4sInstances
+    with ProjectIdHttp4sInstances
+    with DatasetMultiRegionHttp4sInstances
