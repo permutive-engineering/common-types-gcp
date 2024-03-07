@@ -37,4 +37,4 @@ trait ProjectIdPureConfigInstances {
 
 }
 
-object ProjectIdCirceInstances extends ProjectIdPureConfigInstances
+object ProjectIdPureConfigInstances extends ProjectIdPureConfigInstances
