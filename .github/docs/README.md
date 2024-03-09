@@ -5,6 +5,7 @@ GPC common types that can be used on any Scala services or libraries.
 The list of common types are:
 
 - [`DatasetName`](modules/common-types-gcp/src/main/scala/com/permutive/common/types/gcp/DatasetName.scala)
+- [`DatasetMultiRegion`](modules/common-types-gcp/src/main/scala/com/permutive/common/types/gcp/DatasetMultiRegion.scala)
 - [`ProjectId`](modules/common-types-gcp/src/main/scala/com/permutive/common/types/gcp/ProjectId.scala)
 
 ```scala mdoc:toc

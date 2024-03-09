@@ -28,4 +28,4 @@ trait DatasetNamePureConfigInstances {
 
 }
 
-object DatasetNameCirceInstances extends DatasetNamePureConfigInstances
+object DatasetNamePureConfigInstances extends DatasetNamePureConfigInstances

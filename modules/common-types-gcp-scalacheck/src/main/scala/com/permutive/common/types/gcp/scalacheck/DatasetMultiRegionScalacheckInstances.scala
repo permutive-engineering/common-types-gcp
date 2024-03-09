@@ -14,9 +14,18 @@
  * limitations under the License.
  */
 
-package com.permutive.common.types.gcp
+package com.permutive.common.types.gcp.scalacheck
 
-package object circe
-    extends DatasetNameCirceInstances
-    with ProjectIdCirceInstances
-    with DatasetMultiRegionCirceInstances
+import com.permutive.common.types.gcp.DatasetMultiRegion
+import org.scalacheck.Arbitrary
+import org.scalacheck.Gen
+
+trait DatasetMultiRegionScalacheckInstances {
+
+  def genDatasetMultiRegion: Gen[DatasetMultiRegion] = Gen.oneOf(DatasetMultiRegion.US, DatasetMultiRegion.EU)
+
+  implicit def DatasetMultiRegionArbitrary: Arbitrary[DatasetMultiRegion] = Arbitrary(genDatasetMultiRegion)
+
+}
+
+object DatasetMultiRegionScalacheckInstances extends DatasetMultiRegionScalacheckInstances

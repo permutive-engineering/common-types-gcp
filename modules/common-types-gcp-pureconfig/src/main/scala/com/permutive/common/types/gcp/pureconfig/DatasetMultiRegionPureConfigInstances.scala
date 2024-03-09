@@ -18,23 +18,23 @@ package com.permutive.common.types.gcp.pureconfig
 
 import cats.syntax.all._
 
-import com.permutive.common.types.gcp.ProjectId
+import com.permutive.common.types.gcp.DatasetMultiRegion
 import pureconfig.ConfigReader
 import pureconfig.ConfigWriter
 import pureconfig.error.CannotConvert
 import pureconfig.error.FailureReason
 
-trait ProjectIdPureConfigInstances {
+trait DatasetMultiRegionPureConfigInstances {
 
-  sealed abstract class UnableToRetrieveProjectId(override val description: String) extends FailureReason
+  sealed abstract class UnableToRetrieveDatasetMultiRegion(override val description: String) extends FailureReason
 
-  implicit def ProjectIdConfigReader: ConfigReader[ProjectId] = ConfigReader[String].emap {
-    case "gcp"  => ProjectId.unsafeFromGCP.value.leftMap(new UnableToRetrieveProjectId(_) {})
-    case string => ProjectId.fromString(string).leftMap(CannotConvert(string, "ProjectId", _))
+  implicit def DatasetMultiRegionConfigReader: ConfigReader[DatasetMultiRegion] = ConfigReader[String].emap { string =>
+    DatasetMultiRegion.fromString(string).leftMap(CannotConvert(string, "DatasetMultiRegion", _))
   }
 
-  implicit def ProjectIdConfigWriter: ConfigWriter[ProjectId] = ConfigWriter[String].contramap(_.value)
+  implicit def DatasetMultiRegionConfigWriter: ConfigWriter[DatasetMultiRegion] =
+    ConfigWriter[String].contramap(_.value)
 
 }
 
-object ProjectIdPureConfigInstances extends ProjectIdPureConfigInstances
+object DatasetMultiRegionPureConfigInstances extends DatasetMultiRegionPureConfigInstances

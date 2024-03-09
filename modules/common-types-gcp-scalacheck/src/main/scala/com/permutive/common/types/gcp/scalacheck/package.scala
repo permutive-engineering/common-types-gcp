@@ -16,4 +16,7 @@
 
 package com.permutive.common.types.gcp
 
-package object scalacheck extends DatasetNameScalacheckInstances with ProjectIdScalacheckInstances
+package object scalacheck
+    extends DatasetNameScalacheckInstances
+    with ProjectIdScalacheckInstances
+    with DatasetMultiRegionScalacheckInstances

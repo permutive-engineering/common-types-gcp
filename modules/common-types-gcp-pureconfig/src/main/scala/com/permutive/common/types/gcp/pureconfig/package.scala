@@ -16,4 +16,7 @@
 
 package com.permutive.common.types.gcp
 
-package object pureconfig extends DatasetNamePureConfigInstances with ProjectIdPureConfigInstances
+package object pureconfig
+    extends DatasetNamePureConfigInstances
+    with ProjectIdPureConfigInstances
+    with DatasetMultiRegionPureConfigInstances
