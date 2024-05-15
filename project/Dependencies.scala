@@ -17,7 +17,7 @@ object Dependencies {
   )
 
   lazy val `common-types-gcp-circe` = Seq(
-    "io.circe" %% "circe-core" % "0.14.6"
+    "io.circe" %% "circe-core" % "0.14.7"
   )
 
   lazy val `common-types-gcp-pureconfig` = Seq(
