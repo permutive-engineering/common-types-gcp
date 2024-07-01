@@ -21,7 +21,7 @@ object Dependencies {
   )
 
   lazy val `common-types-gcp-pureconfig` = Seq(
-    "com.github.pureconfig" %% "pureconfig-core" % "0.17.6"
+    "com.github.pureconfig" %% "pureconfig-core" % "0.17.7"
   )
 
   lazy val `common-types-gcp-scalacheck` = Seq(
