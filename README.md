@@ -22,6 +22,9 @@ The list of common types are:
   - [`common-types-gcp-pureconfig`](#common-types-gcp-pureconfig)
     - [Installation](#installation)
     - [Usage](#usage)
+  - [`common-types-gcp-tapir`](#common-types-gcp-tapir)
+    - [Installation](#installation)
+    - [Usage](#usage)
   - [`common-types-gcp-scalacheck`](#common-types-gcp-scalacheck)
     - [Installation](#installation)
     - [Usage](#usage)
@@ -32,7 +35,7 @@ The list of common types are:
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp" % "1.0.0"
+"com.permutive" %% "common-types-gcp" % "1.1.0"
 ```
 
 ## Usage
@@ -93,7 +96,7 @@ val projectId: ProjectId = ProjectId("test-project")
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-circe" % "1.0.0"
+"com.permutive" %% "common-types-gcp-circe" % "1.1.0"
 ```
 
 #### Usage
@@ -114,7 +117,7 @@ available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-http4s" % "1.0.0"
+"com.permutive" %% "common-types-gcp-http4s" % "1.1.0"
 ```
 
 #### Usage
@@ -135,7 +138,7 @@ instances for the available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-pureconfig" % "1.0.0"
+"com.permutive" %% "common-types-gcp-pureconfig" % "1.1.0"
 ```
 
 #### Usage
@@ -153,6 +156,84 @@ For the case of `ProjectId` you can use the special value `gcp` on your
 `application.conf` when running inside a workload and it will retrieve the
 current `ProjectId` from Google's metadata service.
 
+### `common-types-gcp-tapir`
+
+#### Installation
+
+Add the following dependency to your project:
+
+```sbt
+"com.permutive" %% "common-types-gcp-tapir" % "1.1.0"
+```
+
+#### Usage
+
+Just add the following import:
+
+```scala
+import com.permutive.common.types.gcp.tapir._
+```
+
+It will bring `Codec`/`Schema` instances for the available types, as well as adding a new extension method (`example`) to common types' companion objects that can be used to add an example value to tapir endpoints:
+
+```scala
+import com.permutive.common.types.gcp.ProjectId
+import com.permutive.common.types.gcp.tapir._
+
+import sttp.tapir._
+
+endpoint.get
+  .in("projects")
+  .in(path[ProjectId]("project_id").example(ProjectId.example))
+// res12: Endpoint[Unit, typelevel.LowPriorityTupleConcat0.<refinement>.this.type.Out, Unit, Unit, Any] = Endpoint(
+//   securityInput = Empty(
+//     codec = sttp.tapir.Codec$$anon$4@7cc62914,
+//     info = Info(
+//       description = None,
+//       examples = List(),
+//       deprecated = false,
+//       attributes = AttributeMap(storage = Map())
+//     )
+//   ),
+//   input = Pair(
+//     left = Pair(
+//       left = Pair(
+//         left = Empty(
+//           codec = sttp.tapir.Codec$$anon$4@7cc62914,
+//           info = Info(
+//             description = None,
+//             examples = List(),
+//             deprecated = false,
+//             attributes = AttributeMap(storage = Map())
+//           )
+//         ),
+//         right = FixedMethod(
+//           m = Method(method = "GET"),
+//           codec = sttp.tapir.Codec$$anon$4@24e399bf,
+//           info = Info(
+//             description = None,
+//             examples = List(),
+//             deprecated = false,
+//             attributes = AttributeMap(storage = Map())
+//           )
+//         ),
+//         combine = sttp.tapir.internal.package$$$Lambda$14987/0x00007f4b5697e6e0@6836a99b,
+//         split = sttp.tapir.internal.package$$$Lambda$14988/0x00007f4b5697ec88@45bf623a
+//       ),
+//       right = FixedPath(
+//         s = "projects",
+//         codec = sttp.tapir.Codec$$anon$4@4a282bc6,
+//         info = Info(
+//           description = None,
+//           examples = List(),
+//           deprecated = false,
+//           attributes = AttributeMap(storage = Map())
+//         )
+//       ),
+//       combine = sttp.tapir.internal.package$$$Lambda$14989/0x00007f4b5697f7c8@72be7d5d,
+// ...
+```
+
 ### `common-types-gcp-scalacheck`
 
 #### Installation
@@ -160,7 +241,7 @@ current `ProjectId` from Google's metadata service.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-scalacheck" % "1.0.0"
+"com.permutive" %% "common-types-gcp-scalacheck" % "1.1.0"
 ```
 
 #### Usage
