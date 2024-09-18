@@ -28,6 +28,10 @@ lazy val `common-types-gcp-pureconfig` = module
   .settings(libraryDependencies ++= Dependencies.`common-types-gcp-pureconfig`)
   .dependsOn(`common-types-gcp`)
 
+lazy val `common-types-gcp-tapir` = module
+  .settings(libraryDependencies ++= Dependencies.`common-types-gcp-tapir`)
+  .dependsOn(`common-types-gcp`)
+
 lazy val `common-types-gcp-scalacheck` = module
   .settings(libraryDependencies ++= Dependencies.`common-types-gcp-scalacheck`)
   .dependsOn(`common-types-gcp`)

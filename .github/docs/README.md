@@ -147,6 +147,37 @@ For the case of `ProjectId` you can use the special value `gcp` on your
 `application.conf` when running inside a workload and it will retrieve the
 current `ProjectId` from Google's metadata service.
 
+### `common-types-gcp-tapir`
+
+#### Installation
+
+Add the following dependency to your project:
+
+```sbt
+"com.permutive" %% "common-types-gcp-tapir" % "@VERSION@"
+```
+
+#### Usage
+
+Just add the following import:
+
+```scala mdoc:silent:warn
+import com.permutive.common.types.gcp.tapir._
+```
+
+It will bring `Codec`/`Schema` instances for the available types, as well as adding a new extension method (`example`) to common types' companion objects that can be used to add an example value to tapir endpoints:
+
+```scala mdoc
+import com.permutive.common.types.gcp.ProjectId
+import com.permutive.common.types.gcp.tapir._
+
+import sttp.tapir._
+
+endpoint.get
+  .in("projects")
+  .in(path[ProjectId]("project_id").example(ProjectId.example))
+```
+
 ### `common-types-gcp-scalacheck`
 
 #### Installation

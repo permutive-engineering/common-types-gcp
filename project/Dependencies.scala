@@ -24,6 +24,10 @@ object Dependencies {
     "com.github.pureconfig" %% "pureconfig-core" % "0.17.6"
   )
 
+  lazy val `common-types-gcp-tapir` = Seq(
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.11.4"
+  )
+
   lazy val `common-types-gcp-scalacheck` = Seq(
     "org.scalacheck" %% "scalacheck" % "1.17.1"
   ) ++ Seq(
