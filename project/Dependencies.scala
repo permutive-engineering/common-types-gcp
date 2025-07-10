@@ -4,7 +4,7 @@ import sbt.Keys._
 object Dependencies {
 
   lazy val `common-types-gcp` = Seq(
-    "org.typelevel" %% "cats-core" % "2.10.0"
+    "org.typelevel" %% "cats-core" % "2.13.0"
   ) ++ Seq(
     "org.typelevel" %% "munit-cats-effect"   % "2.0.0-RC1",
     "org.http4s"    %% "http4s-dsl"          % "0.23.30",
