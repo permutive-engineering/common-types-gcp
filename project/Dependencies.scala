@@ -13,7 +13,7 @@ object Dependencies {
   ).map(_ % Test)
 
   lazy val `common-types-gcp-http4s` = Seq(
-    "org.http4s" %% "http4s-core" % "0.23.27"
+    "org.http4s" %% "http4s-core" % "0.23.30"
   )
 
   lazy val `common-types-gcp-circe` = Seq(
