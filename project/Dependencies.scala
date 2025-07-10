@@ -9,7 +9,7 @@ object Dependencies {
     "org.typelevel" %% "munit-cats-effect"   % "2.0.0-RC1",
     "org.http4s"    %% "http4s-dsl"          % "0.23.30",
     "org.http4s"    %% "http4s-ember-server" % "0.23.30",
-    "org.slf4j"      % "slf4j-nop"           % "2.0.13"
+    "org.slf4j"      % "slf4j-nop"           % "2.0.17"
   ).map(_ % Test)
 
   lazy val `common-types-gcp-http4s` = Seq(
