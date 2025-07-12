@@ -35,7 +35,7 @@ The list of common types are:
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp" % "1.2.0"
+"com.permutive" %% "common-types-gcp" % "1.2.1"
 ```
 
 ## Usage
@@ -96,7 +96,7 @@ val projectId: ProjectId = ProjectId("test-project")
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-circe" % "1.2.0"
+"com.permutive" %% "common-types-gcp-circe" % "1.2.1"
 ```
 
 #### Usage
@@ -117,7 +117,7 @@ available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-http4s" % "1.2.0"
+"com.permutive" %% "common-types-gcp-http4s" % "1.2.1"
 ```
 
 #### Usage
@@ -138,7 +138,7 @@ instances for the available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-pureconfig" % "1.2.0"
+"com.permutive" %% "common-types-gcp-pureconfig" % "1.2.1"
 ```
 
 #### Usage
@@ -163,7 +163,7 @@ current `ProjectId` from Google's metadata service.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-tapir" % "1.2.0"
+"com.permutive" %% "common-types-gcp-tapir" % "1.2.1"
 ```
 
 #### Usage
@@ -187,7 +187,7 @@ endpoint.get
   .in(path[ProjectId]("project_id").example(ProjectId.example))
 // res12: Endpoint[Unit, typelevel.LowPriorityTupleConcat0.<refinement>.this.type.Out, Unit, Unit, Any] = Endpoint(
 //   securityInput = Empty(
-//     codec = sttp.tapir.Codec$$anon$4@1f94f515,
+//     codec = sttp.tapir.Codec$$anon$4@5e12767b,
 //     info = Info(
 //       description = None,
 //       examples = List(),
@@ -199,7 +199,7 @@ endpoint.get
 //     left = Pair(
 //       left = Pair(
 //         left = Empty(
-//           codec = sttp.tapir.Codec$$anon$4@1f94f515,
+//           codec = sttp.tapir.Codec$$anon$4@5e12767b,
 //           info = Info(
 //             description = None,
 //             examples = List(),
@@ -209,7 +209,7 @@ endpoint.get
 //         ),
 //         right = FixedMethod(
 //           m = Method(method = "GET"),
-//           codec = sttp.tapir.Codec$$anon$4@75059d84,
+//           codec = sttp.tapir.Codec$$anon$4@4c79b5bd,
 //           info = Info(
 //             description = None,
 //             examples = List(),
@@ -217,12 +217,12 @@ endpoint.get
 //             attributes = AttributeMap(storage = Map())
 //           )
 //         ),
-//         combine = sttp.tapir.internal.package$$$Lambda$14173/0x00007f025e892ad8@6d9d3e02,
-//         split = sttp.tapir.internal.package$$$Lambda$14174/0x00007f025e893080@1846df1b
+//         combine = sttp.tapir.internal.package$$$Lambda$14576/0x00007fcfaa923a30@3940b5ff,
+//         split = sttp.tapir.internal.package$$$Lambda$14577/0x00007fcfaa923fd8@16439897
 //       ),
 //       right = FixedPath(
 //         s = "projects",
-//         codec = sttp.tapir.Codec$$anon$4@58256b65,
+//         codec = sttp.tapir.Codec$$anon$4@4b34ab92,
 //         info = Info(
 //           description = None,
 //           examples = List(),
@@ -230,7 +230,7 @@ endpoint.get
 //           attributes = AttributeMap(storage = Map())
 //         )
 //       ),
-//       combine = sttp.tapir.internal.package$$$Lambda$14175/0x00007f025e893bc0@1952458,
+//       combine = sttp.tapir.internal.package$$$Lambda$14578/0x00007fcfaa924b18@4a613b14,
 // ...
 ```
 
@@ -241,7 +241,7 @@ endpoint.get
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-scalacheck" % "1.2.0"
+"com.permutive" %% "common-types-gcp-scalacheck" % "1.2.1"
 ```
 
 #### Usage
