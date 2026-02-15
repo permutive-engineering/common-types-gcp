@@ -8,7 +8,7 @@ object Dependencies {
   ) ++ Seq(
     "org.typelevel" %% "munit-cats-effect"   % "2.1.0",
     "org.http4s"    %% "http4s-dsl"          % "0.23.33",
-    "org.http4s"    %% "http4s-ember-server" % "0.23.30",
+    "org.http4s"    %% "http4s-ember-server" % "0.23.33",
     "org.slf4j"      % "slf4j-nop"           % "2.0.17"
   ).map(_ % Test)
 
