@@ -14,19 +14,10 @@
  * limitations under the License.
  */
 
-package com.permutive.common.types.gcp.scalacheck
+package com.permutive.common.types.gcp.pureconfig
 
-import com.permutive.common.types.gcp.DatasetName
-import org.scalacheck.Arbitrary
-import org.scalacheck.Arbitrary.arbitrary
-import org.scalacheck.Gen
+import _root_.pureconfig.error.FailureReason
 
-trait DatasetNameScalacheckInstances {
+abstract class UnableToRetrieveDatasetMultiRegion(override val description: String) extends FailureReason
 
-  def genDatasetName: Gen[DatasetName] = arbitrary[String].map(DatasetName(_))
-
-  implicit def DatasetNameArbitrary: Arbitrary[DatasetName] = Arbitrary(genDatasetName)
-
-}
-
-object DatasetNameScalacheckInstances extends DatasetNameScalacheckInstances
+abstract class UnableToRetrieveProjectId(override val description: String) extends FailureReason

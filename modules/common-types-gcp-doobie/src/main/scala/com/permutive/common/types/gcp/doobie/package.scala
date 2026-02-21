@@ -16,20 +16,17 @@
 
 package com.permutive.common.types.gcp
 
-import doobie.Meta
+import _root_.doobie.Meta
 
-package object doobie
-    extends DatasetMultiRegionDoobieInstances
-    with DatasetNameDoobieInstances
-    with ProjectIdDoobieInstances {
+package object doobie {
 
-  implicit override val DatasetMultiRegionMeta: Meta[DatasetMultiRegion] =
-    super.DatasetMultiRegionMeta
+  implicit val DatasetMultiRegionMeta: Meta[DatasetMultiRegion] =
+    Meta[String].tiemap(DatasetMultiRegion.fromString)(_.value)
 
-  implicit override val DatasetNameMeta: Meta[DatasetName] =
-    super.DatasetNameMeta
+  implicit val DatasetNameMeta: Meta[DatasetName] =
+    Meta[String].timap(DatasetName(_))(_.value)
 
-  implicit override val ProjectIdMeta: Meta[ProjectId] =
-    super.ProjectIdMeta
+  implicit val ProjectIdMeta: Meta[ProjectId] =
+    Meta[String].tiemap(ProjectId.fromString)(_.value)
 
 }
