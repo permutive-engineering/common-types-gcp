@@ -16,6 +16,9 @@ The list of common types are:
   - [`common-types-gcp-circe`](#common-types-gcp-circe)
     - [Installation](#installation)
     - [Usage](#usage)
+  - [`common-types-gcp-doobie`](#common-types-gcp-doobie)
+    - [Installation](#installation)
+    - [Usage](#usage)
   - [`common-types-gcp-http4s`](#common-types-gcp-http4s)
     - [Installation](#installation)
     - [Usage](#usage)
@@ -35,7 +38,7 @@ The list of common types are:
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp" % "1.2.1"
+"com.permutive" %% "common-types-gcp" % "2.0.0"
 ```
 
 ## Usage
@@ -96,7 +99,7 @@ val projectId: ProjectId = ProjectId("test-project")
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-circe" % "1.2.1"
+"com.permutive" %% "common-types-gcp-circe" % "2.0.0"
 ```
 
 #### Usage
@@ -110,6 +113,26 @@ import com.permutive.common.types.gcp.circe._
 It will bring `Encoder`, `Decoder`, `KeyEncoder` & `KeyDecoder` instances for the
 available types into scope.
 
+### `common-types-gcp-doobie`
+
+#### Installation
+
+Add the following dependency to your project:
+
+```sbt
+"com.permutive" %% "common-types-gcp-doobie" % "2.0.0"
+```
+
+#### Usage
+
+Just add the following import:
+
+```scala
+import com.permutive.common.types.gcp.doobie._
+```
+
+It will bring `Meta` instances for the available types into scope.
+
 ### `common-types-gcp-http4s`
 
 #### Installation
@@ -117,7 +140,7 @@ available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-http4s" % "1.2.1"
+"com.permutive" %% "common-types-gcp-http4s" % "2.0.0"
 ```
 
 #### Usage
@@ -138,7 +161,7 @@ instances for the available types into scope.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-pureconfig" % "1.2.1"
+"com.permutive" %% "common-types-gcp-pureconfig" % "2.0.0"
 ```
 
 #### Usage
@@ -163,7 +186,7 @@ current `ProjectId` from Google's metadata service.
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-tapir" % "1.2.1"
+"com.permutive" %% "common-types-gcp-tapir" % "2.0.0"
 ```
 
 #### Usage
@@ -185,9 +208,9 @@ import sttp.tapir._
 endpoint.get
   .in("projects")
   .in(path[ProjectId]("project_id").example(ProjectId.example))
-// res12: Endpoint[Unit, typelevel.LowPriorityTupleConcat0.<refinement>.this.type.Out, Unit, Unit, Any] = Endpoint(
+// res14: Endpoint[Unit, typelevel.LowPriorityTupleConcat0.<refinement>.this.type.Out, Unit, Unit, Any] = Endpoint(
 //   securityInput = Empty(
-//     codec = sttp.tapir.Codec$$anon$4@5e12767b,
+//     codec = sttp.tapir.Codec$$anon$4@26113b01,
 //     info = Info(
 //       description = None,
 //       examples = List(),
@@ -199,7 +222,7 @@ endpoint.get
 //     left = Pair(
 //       left = Pair(
 //         left = Empty(
-//           codec = sttp.tapir.Codec$$anon$4@5e12767b,
+//           codec = sttp.tapir.Codec$$anon$4@26113b01,
 //           info = Info(
 //             description = None,
 //             examples = List(),
@@ -209,7 +232,7 @@ endpoint.get
 //         ),
 //         right = FixedMethod(
 //           m = Method(method = "GET"),
-//           codec = sttp.tapir.Codec$$anon$4@4c79b5bd,
+//           codec = sttp.tapir.Codec$$anon$4@30bbe753,
 //           info = Info(
 //             description = None,
 //             examples = List(),
@@ -217,12 +240,12 @@ endpoint.get
 //             attributes = AttributeMap(storage = Map())
 //           )
 //         ),
-//         combine = sttp.tapir.internal.package$$$Lambda$14576/0x00007fcfaa923a30@3940b5ff,
-//         split = sttp.tapir.internal.package$$$Lambda$14577/0x00007fcfaa923fd8@16439897
+//         combine = sttp.tapir.internal.package$$$Lambda$15146/0x00007f55e2a81f28@19fb41fe,
+//         split = sttp.tapir.internal.package$$$Lambda$15147/0x00007f55e2a824d0@13b0acf
 //       ),
 //       right = FixedPath(
 //         s = "projects",
-//         codec = sttp.tapir.Codec$$anon$4@4b34ab92,
+//         codec = sttp.tapir.Codec$$anon$4@6958b193,
 //         info = Info(
 //           description = None,
 //           examples = List(),
@@ -230,7 +253,7 @@ endpoint.get
 //           attributes = AttributeMap(storage = Map())
 //         )
 //       ),
-//       combine = sttp.tapir.internal.package$$$Lambda$14578/0x00007fcfaa924b18@4a613b14,
+//       combine = sttp.tapir.internal.package$$$Lambda$15148/0x00007f55e2a83010@6b64294,
 // ...
 ```
 
@@ -241,7 +264,7 @@ endpoint.get
 Add the following dependency to your project:
 
 ```sbt
-"com.permutive" %% "common-types-gcp-scalacheck" % "1.2.1"
+"com.permutive" %% "common-types-gcp-scalacheck" % "2.0.0"
 ```
 
 #### Usage
