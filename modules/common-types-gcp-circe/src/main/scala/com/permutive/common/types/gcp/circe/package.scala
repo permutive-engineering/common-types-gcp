@@ -16,7 +16,38 @@
 
 package com.permutive.common.types.gcp
 
-package object circe
-    extends DatasetNameCirceInstances
-    with ProjectIdCirceInstances
-    with DatasetMultiRegionCirceInstances
+import cats.syntax.all._
+
+import io.circe.Decoder
+import io.circe.Encoder
+import io.circe.KeyDecoder
+import io.circe.KeyEncoder
+
+package object circe {
+
+  implicit val DatasetMultiRegionEncoder: Encoder[DatasetMultiRegion] = Encoder[String].contramap(_.value)
+
+  implicit val DatasetMultiRegionDecoder: Decoder[DatasetMultiRegion] =
+    Decoder[String].emap(DatasetMultiRegion.fromString)
+
+  implicit val DatasetMultiRegionKeyEncoder: KeyEncoder[DatasetMultiRegion] = _.value
+
+  implicit val DatasetMultiRegionKeyDecoder: KeyDecoder[DatasetMultiRegion] = DatasetMultiRegion.fromString(_).toOption
+
+  implicit val DatasetNameEncoder: Encoder[DatasetName] = Encoder[String].contramap(_.value)
+
+  implicit val DatasetNameDecoder: Decoder[DatasetName] = Decoder[String].map(DatasetName(_))
+
+  implicit val DatasetNameKeyEncoder: KeyEncoder[DatasetName] = _.value
+
+  implicit val DatasetNameKeyDecoder: KeyDecoder[DatasetName] = DatasetName(_).some
+
+  implicit val ProjectIdEncoder: Encoder[ProjectId] = Encoder[String].contramap(_.value)
+
+  implicit val ProjectIdDecoder: Decoder[ProjectId] = Decoder[String].emap(ProjectId.fromString)
+
+  implicit val ProjectIdKeyEncoder: KeyEncoder[ProjectId] = _.value
+
+  implicit val ProjectIdKeyDecoder: KeyDecoder[ProjectId] = ProjectId.fromString(_).toOption
+
+}

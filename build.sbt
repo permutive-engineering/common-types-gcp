@@ -1,7 +1,7 @@
-ThisBuild / scalaVersion           := "2.13.16"
-ThisBuild / crossScalaVersions     := Seq("2.13.16", "3.3.6")
+ThisBuild / scalaVersion           := "2.13.18"
+ThisBuild / crossScalaVersions     := Seq("2.13.18", "3.3.7")
 ThisBuild / organization           := "com.permutive"
-ThisBuild / versionPolicyIntention := Compatibility.BinaryAndSourceCompatible
+ThisBuild / versionPolicyIntention := Compatibility.None
 
 addCommandAlias("ci-test", "fix --check; versionPolicyCheck; mdoc; publishLocal; +test")
 addCommandAlias("ci-docs", "github; mdoc; headerCreateAll")
@@ -18,6 +18,10 @@ lazy val `common-types-gcp` = module
 
 lazy val `common-types-gcp-circe` = module
   .settings(libraryDependencies ++= Dependencies.`common-types-gcp-circe`)
+  .dependsOn(`common-types-gcp`)
+
+lazy val `common-types-gcp-doobie` = module
+  .settings(libraryDependencies ++= Dependencies.`common-types-gcp-doobie`)
   .dependsOn(`common-types-gcp`)
 
 lazy val `common-types-gcp-http4s` = module

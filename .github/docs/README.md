@@ -101,6 +101,26 @@ import com.permutive.common.types.gcp.circe._
 It will bring `Encoder`, `Decoder`, `KeyEncoder` & `KeyDecoder` instances for the
 available types into scope.
 
+### `common-types-gcp-doobie`
+
+#### Installation
+
+Add the following dependency to your project:
+
+```sbt
+"com.permutive" %% "common-types-gcp-doobie" % "@VERSION@"
+```
+
+#### Usage
+
+Just add the following import:
+
+```scala mdoc:reset:silent:warn
+import com.permutive.common.types.gcp.doobie._
+```
+
+It will bring `Meta` instances for the available types into scope.
+
 ### `common-types-gcp-http4s`
 
 #### Installation

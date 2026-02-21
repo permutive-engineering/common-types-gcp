@@ -23,7 +23,10 @@ private[gcp] object ProjectIdMacros {
 
     val string = s.value.getOrElse {
       val position = Position.ofMacroExpansion
-      report.errorAndAbort("compile-time refinement only works with literals, use ProjectId.fromString instead", position)
+      report.errorAndAbort(
+        "compile-time refinement only works with literals, use ProjectId.fromString instead",
+        position
+      )
     }
 
     ProjectId

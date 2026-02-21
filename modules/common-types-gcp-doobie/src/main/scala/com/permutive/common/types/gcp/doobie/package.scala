@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package com.permutive.common.types.gcp.pureconfig
+package com.permutive.common.types.gcp
 
-import com.permutive.common.types.gcp.DatasetName
-import pureconfig.ConfigReader
-import pureconfig.ConfigWriter
+import _root_.doobie.Meta
 
-trait DatasetNamePureConfigInstances {
+package object doobie {
 
-  implicit def DatasetNameConfigReader: ConfigReader[DatasetName] = ConfigReader[String].map(DatasetName(_))
+  implicit val DatasetMultiRegionMeta: Meta[DatasetMultiRegion] =
+    Meta[String].tiemap(DatasetMultiRegion.fromString)(_.value)
 
-  implicit def DatasetNameConfigWriter: ConfigWriter[DatasetName] = ConfigWriter[String].contramap(_.value)
+  implicit val DatasetNameMeta: Meta[DatasetName] =
+    Meta[String].timap(DatasetName(_))(_.value)
+
+  implicit val ProjectIdMeta: Meta[ProjectId] =
+    Meta[String].tiemap(ProjectId.fromString)(_.value)
 
 }
-
-object DatasetNamePureConfigInstances extends DatasetNamePureConfigInstances

@@ -16,7 +16,26 @@
 
 package com.permutive.common.types.gcp
 
-package object scalacheck
-    extends DatasetNameScalacheckInstances
-    with ProjectIdScalacheckInstances
-    with DatasetMultiRegionScalacheckInstances
+import org.scalacheck.Arbitrary
+import org.scalacheck.Arbitrary.arbitrary
+import org.scalacheck.Gen
+
+package object scalacheck {
+
+  def genDatasetMultiRegion: Gen[DatasetMultiRegion] = Gen.oneOf(DatasetMultiRegion.US, DatasetMultiRegion.EU)
+
+  implicit val DatasetMultiRegionArbitrary: Arbitrary[DatasetMultiRegion] = Arbitrary(genDatasetMultiRegion)
+
+  def genDatasetName: Gen[DatasetName] = arbitrary[String].map(DatasetName(_))
+
+  implicit val DatasetNameArbitrary: Arbitrary[DatasetName] = Arbitrary(genDatasetName)
+
+  def genProjectId: Gen[ProjectId] = for {
+    first     <- Gen.alphaChar
+    rest      <- Gen.alphaLowerStr.map(_.take(28))
+    projectId <- ProjectId.fromString(s"$first$rest").fold(_ => Gen.fail, Gen.const)
+  } yield projectId
+
+  implicit val ProjectIdArbitrary: Arbitrary[ProjectId] = Arbitrary(genProjectId)
+
+}

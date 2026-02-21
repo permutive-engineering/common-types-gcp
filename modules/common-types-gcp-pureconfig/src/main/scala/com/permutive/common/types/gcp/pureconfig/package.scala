@@ -16,7 +16,30 @@
 
 package com.permutive.common.types.gcp
 
-package object pureconfig
-    extends DatasetNamePureConfigInstances
-    with ProjectIdPureConfigInstances
-    with DatasetMultiRegionPureConfigInstances
+import cats.syntax.all._
+
+import _root_.pureconfig.ConfigReader
+import _root_.pureconfig.ConfigWriter
+import _root_.pureconfig.error.CannotConvert
+
+package object pureconfig {
+
+  implicit val DatasetMultiRegionConfigReader: ConfigReader[DatasetMultiRegion] = ConfigReader[String].emap { string =>
+    DatasetMultiRegion.fromString(string).leftMap(CannotConvert(string, "DatasetMultiRegion", _))
+  }
+
+  implicit val DatasetMultiRegionConfigWriter: ConfigWriter[DatasetMultiRegion] =
+    ConfigWriter[String].contramap(_.value)
+
+  implicit val DatasetNameConfigReader: ConfigReader[DatasetName] = ConfigReader[String].map(DatasetName(_))
+
+  implicit val DatasetNameConfigWriter: ConfigWriter[DatasetName] = ConfigWriter[String].contramap(_.value)
+
+  implicit val ProjectIdConfigReader: ConfigReader[ProjectId] = ConfigReader[String].emap {
+    case "gcp"  => ProjectId.unsafeFromGCP.value.leftMap(new UnableToRetrieveProjectId(_) {})
+    case string => ProjectId.fromString(string).leftMap(CannotConvert(string, "ProjectId", _))
+  }
+
+  implicit val ProjectIdConfigWriter: ConfigWriter[ProjectId] = ConfigWriter[String].contramap(_.value)
+
+}
