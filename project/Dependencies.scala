@@ -28,6 +28,10 @@ object Dependencies {
     "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.11.50"
   )
 
+  lazy val `common-types-gcp-doobie` = Seq(
+    "org.tpolecat" %% "doobie-core" % "1.0.0-RC11"
+  )
+
   lazy val `common-types-gcp-scalacheck` = Seq(
     "org.scalacheck" %% "scalacheck" % "1.19.0"
   ) ++ Seq(

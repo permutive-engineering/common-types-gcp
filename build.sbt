@@ -20,6 +20,10 @@ lazy val `common-types-gcp-circe` = module
   .settings(libraryDependencies ++= Dependencies.`common-types-gcp-circe`)
   .dependsOn(`common-types-gcp`)
 
+lazy val `common-types-gcp-doobie` = module
+  .settings(libraryDependencies ++= Dependencies.`common-types-gcp-doobie`)
+  .dependsOn(`common-types-gcp`)
+
 lazy val `common-types-gcp-http4s` = module
   .settings(libraryDependencies ++= Dependencies.`common-types-gcp-http4s`)
   .dependsOn(`common-types-gcp`)
