@@ -6,18 +6,18 @@ object Dependencies {
   lazy val `common-types-gcp` = Seq(
     "org.typelevel" %% "cats-core" % "2.13.0"
   ) ++ Seq(
-    "org.typelevel" %% "munit-cats-effect"   % "2.1.0",
-    "org.http4s"    %% "http4s-dsl"          % "0.23.33",
-    "org.http4s"    %% "http4s-ember-server" % "0.23.33",
-    "org.slf4j"      % "slf4j-nop"           % "2.0.17"
+    "org.typelevel" %% "munit-cats-effect"   % "2.2.0",
+    "org.http4s"    %% "http4s-dsl"          % "0.23.36",
+    "org.http4s"    %% "http4s-ember-server" % "0.23.36",
+    "org.slf4j"      % "slf4j-nop"           % "2.0.18"
   ).map(_ % Test)
 
   lazy val `common-types-gcp-http4s` = Seq(
-    "org.http4s" %% "http4s-core" % "0.23.33"
+    "org.http4s" %% "http4s-core" % "0.23.36"
   )
 
   lazy val `common-types-gcp-circe` = Seq(
-    "io.circe" %% "circe-core" % "0.14.15"
+    "io.circe" %% "circe-core" % "0.14.16"
   )
 
   lazy val `common-types-gcp-pureconfig` = Seq(
@@ -25,17 +25,17 @@ object Dependencies {
   )
 
   lazy val `common-types-gcp-tapir` = Seq(
-    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.11.50"
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.13.28"
   )
 
   lazy val `common-types-gcp-doobie` = Seq(
-    "org.tpolecat" %% "doobie-core" % "1.0.0-RC11"
+    "org.tpolecat" %% "doobie-core" % "1.0.0-RC12"
   )
 
   lazy val `common-types-gcp-scalacheck` = Seq(
     "org.scalacheck" %% "scalacheck" % "1.19.0"
   ) ++ Seq(
-    "org.scalameta" %% "munit-scalacheck" % "1.2.0" % Test
+    "org.scalameta" %% "munit-scalacheck" % "1.3.0" % Test
   )
 
 }
