@@ -29,7 +29,7 @@ object Dependencies {
   )
 
   lazy val `common-types-gcp-doobie` = Seq(
-    "org.tpolecat" %% "doobie-core" % "1.0.0-RC11"
+    "org.tpolecat" %% "doobie-core" % "1.0.0-RC12"
   )
 
   lazy val `common-types-gcp-scalacheck` = Seq(
