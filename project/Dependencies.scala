@@ -33,7 +33,7 @@ object Dependencies {
   )
 
   lazy val `common-types-gcp-scalacheck` = Seq(
-    "org.scalacheck" %% "scalacheck" % "1.19.0"
+    "org.scalacheck" %% "scalacheck" % "1.20.0"
   ) ++ Seq(
     "org.scalameta" %% "munit-scalacheck" % "1.2.0" % Test
   )
